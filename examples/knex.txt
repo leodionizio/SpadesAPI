@@ -1,0 +1,3 @@
+
+-- Cria Migration de nome blog
+knex --knexfile ./knexfile.js "migrate:make" "blog"
