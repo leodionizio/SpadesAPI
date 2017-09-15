@@ -3,7 +3,11 @@
   "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
-  "keywords": ["knex", "mssql", "pg", "bookshelf0", "mysql", "jwt", "hapi"],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "knex": "knex --knexfile ./knexfile.js"
+  },
+  "keywords": ["knex", "pg", "bookshelf", "mysql", "jwt", "hapi"],
   "dependencies": {
     "bookshelf": "^0.10.4",
     "boom": "^5.2.0",
