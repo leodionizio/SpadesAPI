@@ -7,9 +7,18 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "knex": "knex --knexfile ./knexfile.js"
   },
-  "keywords": ["knex", "pg", "bookshelf", "mysql", "jwt", "hapi"],
+  "keywords": [
+    "knex",
+    "pg",
+    "bookshelf",
+    "mysql",
+    "jwt",
+    "hapi"
+  ],
   "dependencies": {
     "bookshelf": "^0.10.4",
+    "bookshelf-bcrypt": "^2.1.0",
+    "bookshelf-uuid": "^1.0.0",
     "boom": "^5.2.0",
     "code": "^4.1.0",
     "good": "^7.3.0",
