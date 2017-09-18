@@ -6,18 +6,15 @@ let Good = require('good')
 let app = new Hapi.Server()
 
 app.connection({
-  port: '3070',
-  compression: true
+  port: '3070'
 })
 
-app.register(
-  {
-    register: require('hapi-router'),
-    options: {
-      routes: 'src/**/*route.js'
-    }
+app.register({
+  register: require('hapi-router'),
+  options: {
+    routes: ['src/users/route.js', 'src/posts/route.js', 'src/sessions/route.js']
+  }
 })
-
 
 app.register(
   {
