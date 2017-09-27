@@ -13,7 +13,7 @@ exports.login = (request, reply) => {
       session = result
       return result.compare(request.payload.password)
     })
-    .then((isValid) => {
+    .then(isValid => {
       if (isValid) {
         Jwt.sign(
           {
@@ -27,22 +27,25 @@ exports.login = (request, reply) => {
           },
           (err, token) => {
             if (err) return Boom.unauthorized(err)
-    
-            token = 'Bearer '+ token
 
-            //reply.hold();
-            
-            //reply().header('Authorization', token).hold();
-          
-            
+            token = 'Bearer ' + token
+
+            //reply.hold()
+            //reply.send()
+
             return reply({
+              error: false,
               status: 202,
-              message: 'Session authorized',
-              data: token
-            }).header('Authorization', token).code(200).send()
+              message: 'Session authorized'
+            })
+              .header('Authorization', token)
+              .code(202)
+              .send()
           }
         )
       }
     })
-    .catch((err) => Boom.unauthorized('Sua sessão não pode ser autorizada!'))
+    .catch(err => 
+      reply(Boom.unauthorized('Sua sessão não pode ser autorizada!')))
+      .code(401)
 }

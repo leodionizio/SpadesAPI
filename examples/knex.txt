@@ -4,3 +4,9 @@ yarn knex --knexfile ./knexfile.js "migrate:make" "blog"
 
 -- Roda Migration e cria as tabelas
 yarn knex  migrate:latest
+
+-- roda knex direto do node_modules 
+node_modules/.bin/knex migrate:latest
+
+-- script do package.json para migração 
+"migrate": "knex migrate:latest"
