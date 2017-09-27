@@ -4,7 +4,6 @@ let Boom = require('boom')
 let Posts = require('../../models/posts')
 
 exports.create = (request, reply) => {
-  console.log(request.payload)
   Posts.forge(request.payload)
     .save()
     .then((post) => reply({ data: post }).code(202))
@@ -16,3 +15,11 @@ exports.create = (request, reply) => {
       )
     })
 }
+
+exports.getPosts = (request, reply) => {
+  Posts.forge()
+    .fetchAll()
+    .then((posts)=>{
+      reply({ data: posts}).code(200)
+    })
+    }
