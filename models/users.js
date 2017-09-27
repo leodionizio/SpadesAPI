@@ -1,5 +1,6 @@
 'use strict'
 
+let Post = require('./posts')
 let db = require('../libs/db')
 
 module.exports = db.Model.extend({
@@ -7,6 +8,7 @@ module.exports = db.Model.extend({
   uuid: true,
   hasTimestamps : true,
   bcrypt: { field : 'password'},
-  hidden : ['password'] 
-
+  hidden : ['password'], 
+  posts: () => this.hasMany(Post)
+  
 })
