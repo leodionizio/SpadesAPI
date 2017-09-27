@@ -17,5 +17,10 @@ module.exports = [
         })
       }
     }
+  },
+  {
+    path: '/api/v1/posts',
+    method: 'GET',
+    handler: handler.getPosts
   }
 ]

@@ -27,12 +27,9 @@ exports.login = (request, reply) => {
           },
           (err, token) => {
             if (err) return Boom.unauthorized(err)
-
-            token = 'Bearer ' + token
-
-            //reply.hold()
-            //reply.send()
-
+    
+            token = 'Bearer '+ token          
+            
             return reply({
               error: false,
               status: 202,
