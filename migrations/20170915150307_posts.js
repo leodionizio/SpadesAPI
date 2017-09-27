@@ -5,9 +5,8 @@ knex.schema.createTable('posts', table => {
   table.uuid('id').primary()
   table.string('title').notNullable()
   table.string('content').notNullable()
-  table.string('tags')
-  // table.uuid('id').references('users.id')
+  table.integer('user_id').references('users.id')
   table.timestamps()
 })
 
-exports.down = knex => knex.dropTable('users')
+exports.down = knex => knex.dropTable('posts')
