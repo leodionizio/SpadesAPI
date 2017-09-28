@@ -1,8 +1,12 @@
+exports.up = knex =>
+  knex.schema.createTable('profiles', table => {
+    table.uuid('id').primary()
+    table.integer('user_id').references('users.id')
+    table.string('description')
+    table.string('last_work')
+    table.string('last_school')
+    table.string('bcg_color').notNullable()
+    table.timestamps()
+  })
 
-exports.up = function(knex, Promise) {
-  
-};
-
-exports.down = function(knex, Promise) {
-  
-};
+exports.down = knex => knex.dropTable('profiles')

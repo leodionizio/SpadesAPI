@@ -10,5 +10,4 @@ module.exports = db.Model.extend({
   bcrypt: { field : 'password'},
   hidden : ['password'], 
   posts: () => this.hasMany(Post)
-  
 })
