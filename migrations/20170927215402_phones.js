@@ -1,6 +1,6 @@
 
 exports.up = (knex) => knex.schema.createTable('phones', (table)=>{
-  table.uuid('id')
+  table.increments('id').primary().serial()
   table.string('country_code')
   table.string('regional_code')
   table.string('number')

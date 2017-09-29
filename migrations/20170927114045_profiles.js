@@ -1,6 +1,6 @@
 exports.up = knex =>
   knex.schema.createTable('profiles', table => {
-    table.uuid('id').primary()
+    table.increments('id').primary().serial()
     table.integer('user_id').references('users.id')
     table.string('description')
     table.string('last_work')

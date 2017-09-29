@@ -2,7 +2,10 @@
 
 exports.up = knex =>
   knex.schema.createTable('users', table => {
-    table.uuid('id').primary()
+    table
+      .increments('id')
+      .primary()
+      .serial()
     table.string('name').notNullable()
     table.string('surname').notNullable()
     table
@@ -19,5 +22,4 @@ exports.up = knex =>
     table.timestamps()
   })
 
-exports.down = 
-  knex => knex.dropTable('posts').dropTable('users')
+exports.down = knex => knex.dropTable('posts').dropTable('users')
