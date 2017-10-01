@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./index.js",
+    "start": "./node_modules/.bin/nodemon  index.js",
     "knex": "knex --knexfile ./knexfile.js",
     "rollback": "yarn knex migrate:rollback",
     "latest": "yarn knex migrate:latest"
@@ -21,8 +21,6 @@
   "dependencies": {
     "bookshelf": "^0.10.4",
     "bookshelf-bcrypt": "^2.1.0",
-    "bookshelf-uuid": "^1.0.0",
-    "boom": "^5.2.0",
     "code": "^4.1.0",
     "good": "^7.3.0",
     "good-console": "^6.4.0",
@@ -36,5 +34,8 @@
     "mssql": "^4.0.4",
     "mysql": "^2.14.1",
     "pg": "^7.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
   }
 }
