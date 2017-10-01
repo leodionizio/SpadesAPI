@@ -1,11 +1,10 @@
 'use strict'
 
 exports.up = knex =>
-  knex.schema.createTable('users', table => {
+  knex.schema.createTableIfNotExists('users', table => {
     table
       .increments('id')
       .primary()
-      .serial()
     table.string('name').notNullable()
     table.string('surname').notNullable()
     table
@@ -17,9 +16,8 @@ exports.up = knex =>
       .string('user')
       .unique()
       .notNullable()
-    table.dateTime('born_at')
     table.boolean('admin').default(false)
     table.timestamps()
   })
 
-exports.down = knex => knex.dropTable('posts').dropTable('users')
+exports.down = knex => knex.schema.dropTable('users')
