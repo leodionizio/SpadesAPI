@@ -3,7 +3,6 @@
 let Joi = require('joi')
 let handler = require('./handler')
 
-
 module.exports = [
   {
     method: 'POST',
@@ -12,9 +11,14 @@ module.exports = [
     config: {
       validate: {
         payload: Joi.object({
+          name: Joi.string().required(),
+          surname: Joi.string().required(),
           user: Joi.string().required(),
           password: Joi.string().required(),
-          email : Joi.string().email().required()
+          email: Joi.string()
+            .email()
+            .required(),
+          admin: Joi.string().max(1)
         })
       }
     }
