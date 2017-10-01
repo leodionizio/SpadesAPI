@@ -9,13 +9,18 @@ exports.create = (request, reply) => {
     .then(user =>
       reply({
         error: false,
-        status:202,
-        message: 'Bem Vindo de volta '+ user.user,
+        status: 202,
+        message: 'Seu usuário foi criado com sucesso',
         data: user
       }).code(202)
     )
     .catch(err =>
-      reply(Boom.badData('Erro ao criar usuário, verifique os dados informados!')).code(422)
+      reply({
+        error: true,
+        err: err,
+        status: 422,
+        message: 'Erro ao criar usuário, verifique os dados informados!'
+      }).code(422)
     )
 }
 
@@ -25,13 +30,17 @@ exports.verifyUser = (request, reply) => {
     .then(user =>
       reply({
         error: false,
-        status:202,
+        status: 202,
         message: 'Usuário autenticado sucesso!',
         data: user
       }).code(202)
     )
     .catch(err =>
-      reply(Boom.badData('Erro ao autenticar usuário, verifique os dados informados!')).code(422)
+      reply(
+        Boom.badData(
+          'Erro ao autenticar usuário, verifique os dados informados!'
+        )
+      ).code(422)
     )
 }
 
@@ -41,11 +50,13 @@ exports.resetPass = (request, reply) => {
     .then(user =>
       reply({
         error: false,
-        status:202,
+        status: 202,
         data: user
       }).code(202)
     )
     .catch(err =>
-      reply(Boom.badData('Erro ao resetar sua senha, reinicie o processo!')).code(422)
+      reply(
+        Boom.badData('Erro ao resetar sua senha, reinicie o processo!')
+      ).code(422)
     )
 }
