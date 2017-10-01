@@ -6,9 +6,19 @@ let Posts = require('../../models/posts')
 exports.create = (request, reply) => {
   Posts.forge(request.payload)
     .save()
-    .then(post => reply({ data: post }).code(202))
+    .then(post => reply({
+      error: false,
+      code: 202,
+      data: post,
+      message: 'Sua publicação foi criada com sucesso'
+    }).code(202))
     .catch(err => {
-      reply(Boom.badData('Erro na criação da postagem, verifique os dados informados').code(422))
+      reply({
+        error: true,
+        code: 422,
+        err: err,
+        message: 'Sua publicação não pode ser criada'
+      }).code(422)
     })
 }
 
