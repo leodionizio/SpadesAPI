@@ -13,7 +13,7 @@ module.exports = [
         payload: Joi.object({
           title: Joi.string().required(),
           content: Joi.string().required(),
-          tags: Joi.string()
+          user_id: Joi.number().required()
         })
       }
     }
