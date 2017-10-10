@@ -25,13 +25,12 @@ exports.create = (request, reply) => {
 exports.getAllPosts = (request, reply) => {
   Posts.forge()
     .fetchAll()
-    .then(posts => {
-      reply({ data: posts }).code(200)
+    .then(data => {
+      reply({ data }).code(200)
     })
 }
 
 exports.getByTag = (request, reply) => {
-  let tags = []
   Posts.forge()
     .fetchAll()
     .then(posts => {
