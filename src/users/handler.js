@@ -1,19 +1,23 @@
 'use strict'
 
-let Boom = require('boom')
+let Jwt = require('jsonwebtoken')
 let User = require('../../models/users')
+const tokenKey = '123456789'
 
 exports.create = (request, reply) => {
   User.forge(request.payload)
     .save()
-    .then(user =>
+    .then(user => {
+      let token = Jwt.sign({ id: user.id }, tokenKey, { expiresIn: '1h' })
+      reply().hold()
+      reply().header('Authorization', 'Bearer ' + token).code(202)
       reply({
         error: false,
         status: 202,
         message: 'Seu usuário foi criado com sucesso',
         data: user
-      }).code(202)
-    )
+      }).send()
+    })
     .catch(err =>
       reply({
         error: true,
@@ -26,7 +30,7 @@ exports.create = (request, reply) => {
 
 exports.verifyUser = (request, reply) => {
   User.forge(request.payload)
-    .save()
+    .fetch({ require: true })
     .then(user =>
       reply({
         error: false,

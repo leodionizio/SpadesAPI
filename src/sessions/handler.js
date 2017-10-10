@@ -24,9 +24,7 @@ exports.login = (request, reply) => {
       } else {
         Jwt.sign(
           {
-            id: session.id,
-            email: session.email,
-            user: session.user
+            id: session.id
           },
           tokenKey,
           {
