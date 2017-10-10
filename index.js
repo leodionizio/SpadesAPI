@@ -12,7 +12,7 @@ app.connection({
 app.register({
   register: require('hapi-router'),
   options: {
-    routes: ['src/users/route.js', 'src/posts/route.js', 'src/sessions/route.js']
+    routes: ['src/**/route.js']
   }
 })
 
@@ -42,11 +42,11 @@ app.register(
   },
   err => {
     if (err) {
-      throw err // something bad happened loading the plugin
+      throw err.message // something bad happened loading the plugin
     }
 
     app.start(err => {
-      if (err) throw err
+      if (err) throw err.message
 
       app.log('Servidor rodando em: ', app.info.uri)
     })
