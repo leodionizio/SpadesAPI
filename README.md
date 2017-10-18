@@ -3,11 +3,11 @@
 
 
 ### Tools used to make this API possible:
--**[Hapi](https://hapijs.com/)**
--**[Postgres](https://www.postgresql.org/)**
--**[Knex](http://knexjs.org/)**
--**[Bookshelf](http://bookshelfjs.org/)**
--**[Jwt](https://jwt.io/)**
+- **[Hapi](https://hapijs.com/)**
+- **[Postgres](https://www.postgresql.org/)**
+- **[Knex](http://knexjs.org/)**
+- **[Bookshelf](http://bookshelfjs.org/)**
+- **[Jwt](https://jwt.io/)**
 
 
 
