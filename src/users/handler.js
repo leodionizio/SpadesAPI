@@ -2,7 +2,7 @@
 
 let Jwt = require('jsonwebtoken')
 let User = require('../../models/users')
-const tokenKey = '123456789'
+const tokenKey = process.env.JWT_KEY.toString()
 
 exports.create = (request, reply) => {
   User.forge(request.payload)

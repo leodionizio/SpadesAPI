@@ -2,11 +2,11 @@
 
 let Hapi = require('hapi')
 let Good = require('good')
-
+require('dotenv').config()
 let app = new Hapi.Server()
 
 app.connection({
-  port: '3070'
+  port: process.env.PORT
 })
 
 app.register({

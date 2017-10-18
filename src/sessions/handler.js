@@ -3,7 +3,7 @@
 let Boom = require('boom')
 let Jwt = require('jsonwebtoken')
 let User = require('../../models/users')
-const tokenKey = '123456789'
+const tokenKey = process.env.JWT_KEY.toString()
 exports.login = (request, reply) => {
   let session
   User.forge(request.payload.user)
