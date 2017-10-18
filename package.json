@@ -14,7 +14,6 @@
     "knex",
     "pg",
     "bookshelf",
-    "mysql",
     "jwt",
     "hapi"
   ],
@@ -31,8 +30,6 @@
     "jsonwebtoken": "^8.0.1",
     "knex": "^0.13.0",
     "lab": "^14.2.2",
-    "mssql": "^4.0.4",
-    "mysql": "^2.14.1",
     "pg": "^7.3.0"
   },
   "devDependencies": {
